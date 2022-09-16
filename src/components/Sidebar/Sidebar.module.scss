@@ -1,0 +1,91 @@
+.sidebar {
+  width: 300px;
+  height: calc(100vh - 80px);
+  //background-color: #1a1a25;
+  background: #2a2c38;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  &.close {
+    width: 60px;
+    svg {
+      right: 15px !important;
+    }
+  }
+  @media (max-width: 700px) {
+    width: 180px;
+  }
+  svg {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    width: 25px;
+    height: 25px;
+    color: #fff;
+    cursor: pointer;
+  }
+  .sidebar__content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 20px;
+    .sidebar__category {
+      width: 100%;
+      margin-top: 30px;
+      .sidebar__title {
+        color: #fff;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-top: 1px solid #1a1a25;
+        border-bottom: 1px solid #1a1a25;
+        background: rgba(255, 255, 255, 0.05);
+        font-size: 30px;
+        @media (max-width: 700px) {
+          font-size: 20px;
+        }
+        @media (max-width: 500px) {
+            font-size: 16px;
+          }
+      }
+      .sidebar__items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        a {
+          margin-top: 20px;
+          text-decoration: none;
+          @media (max-width: 700px) {
+            width: 100%;
+          }
+          button {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 202px;
+            height: 50px;
+            background: rgba(133, 143, 164, 0.15);
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            background: rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+            &:hover {
+              transform: scale(1.05);
+            }
+            @media (max-width: 700px) {
+              width: 95%;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

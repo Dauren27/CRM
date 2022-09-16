@@ -1,25 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.scss";
+import Header from "./components/Header/Header";
+import Sidebar from "./components/Sidebar/Sidebar";
+import { BrowserRouter } from "react-router-dom";
+import { AuthContext } from "./context/auth";
+import { PrivateRoutes, PublicRoutes } from "./routes";
 
 function App() {
+  const [isAuth, setIsAuth] = useState(false);
+  const [role,setRole]=useState("")
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthContext.Provider
+      value={{
+        isAuth,
+        setIsAuth,
+        role,
+        setRole,
+      }}
+    >
+      <BrowserRouter>
+        <div className="App">
+          <Header />
+          {isAuth ? (
+            <div className="flex-container">
+              <Sidebar />
+              <PrivateRoutes />
+            </div>
+          ) : (
+            <PublicRoutes />
+          )}
+        </div>
+      </BrowserRouter>
+    </AuthContext.Provider>
   );
 }
 
