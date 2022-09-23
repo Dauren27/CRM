@@ -29,10 +29,10 @@ const Sidebar = () => {
             </div>
           </div>
           <div className={cl.sidebar__category}>
-            <h1 className={cl.sidebar__title}>Category 2</h1>
+            <h1 className={cl.sidebar__title}>Студенты</h1>
             <div className={cl.sidebar__items}>
-              <Link to="/page1">
-                <button>Page1</button>
+              <Link to="/graduates">
+                <button>Выпускники</button>
               </Link>
               <Link to="/page2">
                 <button>Page2</button>
